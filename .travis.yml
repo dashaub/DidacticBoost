@@ -1,0 +1,25 @@
+sudo: false
+
+language: r
+r:
+  - oldrel
+  - release
+  - devel
+
+cache: packages
+
+install:
+  - Rscript -e 'install.packages(c("devtools","roxygen2","testthat"));devtools::install_deps()'
+script:
+  - Rscript -e 'devtools::check()'
+  
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+r_github_packages:
+  - jimhester/covr
+
+after_success:
+  - Rscript -e 'install.packages("covr");covr::coveralls()'
