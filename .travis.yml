@@ -13,7 +13,7 @@ install:
 script:
   - pwd
   - ls
-  - Rscript -e 'devtools::check(pkg = ".")'
+  - Rscript -e 'devtools::check(pkg = "/home/travis/build/dashaub/DidacticBoost/")'
   
 notifications:
   email:
