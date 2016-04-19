@@ -5,7 +5,7 @@ if(require(rpart) & require(testthat)){
     k <- kyphosis
     k$Kyphosis <- factor(ifelse(k$Kyphosis == "present", 1L, -1L))
     expect_that(fit <- fitBoosted(Kyphosis ~ Age + Number + Start, data = k, iterations = 10), not(throws_error()))
-    fit <- fitBoosted(Kyphosis ~ Age + Number + Start, data = k, iterations = 10
+    fit <- fitBoosted(Kyphosis ~ Age + Number + Start, data = k, iterations = 10)
     expect_true(is.boosted(fit))
     expect_that(predict(fit), not(throw_error()))
     expect_that(predict.boosted(fit, newdata = k), not(throws_error()))
